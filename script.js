@@ -25,94 +25,36 @@ const tarot=[
 
 ]
 
-function todayKey(){
-
-return new Date().toDateString()
-
-}
-
 function drawCard(){
-
-let saved=localStorage.getItem("tarot")
-
-let key=todayKey()
-
-let result
-
-if(saved){
-
-let obj=JSON.parse(saved)
-
-if(obj.date===key){
-
-result=obj
-
-}else{
-
-result=randomCard()
-
-localStorage.setItem("tarot",JSON.stringify(result))
-
-}
-
-}else{
-
-result=randomCard()
-
-localStorage.setItem("tarot",JSON.stringify(result))
-
-}
-
-showCard(result)
-
-}
-
-function randomCard(){
 
 let i=Math.floor(Math.random()*tarot.length)
 
 let reverse=Math.random()<0.5
 
-return{
-
-date:todayKey(),
-
-index:i,
-
-reverse:reverse
-
-}
-
-}
-
-function showCard(result){
-
-let data=tarot[result.index]
+let card=tarot[i]
 
 let img=document.getElementById("cardFront")
 
-img.src="images/"+data.file
+img.src="/images/"+card.file
 
-img.style.transform=result.reverse?"rotate(180deg)":"rotate(0deg)"
+img.style.transform=reverse?"rotate(180deg)":"rotate(0deg)"
 
-let pos=result.reverse?"逆位置":"正位置"
+let pos=reverse?"逆位置":"正位置"
 
-document.getElementById("title").innerText=data.name+"（"+pos+"）"
+document.getElementById("title").innerText=card.name+"（"+pos+"）"
 
 document.getElementById("meaning").innerHTML=
 
-"正位置："+data.up+"<br>逆位置："+data.rev
+"正位置："+card.up+"<br>逆位置："+card.rev
 
-let card=document.getElementById("card")
+let cardEl=document.getElementById("card")
 
-card.classList.remove("flip")
+cardEl.classList.remove("flip")
 
 setTimeout(()=>{
 
-card.classList.add("flip")
+cardEl.classList.add("flip")
 
 },100)
 
 }
-
-drawCard()

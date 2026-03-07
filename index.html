@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>タロット占い</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0b20">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h1>タロット占い</h1>
+
+<div id="card-container" onclick="drawCard()">
+
+<div class="card" id="card">
+
+<img src="images/back.png" id="cardBack">
+
+<img id="cardFront" class="card-back">
+
+</div>
+
+</div>
+
+<div id="title"></div>
+<div id="meaning"></div>
+
+<button onclick="drawCard()">カードを引く</button>
+
+<script src="script.js"></script>
+
+<script>
+
+if ("serviceWorker" in navigator) {
+navigator.serviceWorker.register("sw.js");
+}
+
+</script>
+
+</body>
+</html>

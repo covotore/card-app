@@ -2,7 +2,7 @@ body{
 
 margin:0;
 font-family:sans-serif;
-background:linear-gradient(#070a1f,#11153a);
+background:linear-gradient(#070a1f,#12153d);
 color:white;
 
 display:flex;
@@ -16,16 +16,11 @@ text-align:center;
 
 }
 
-h1{
-
-margin-bottom:10px;
-
-}
-
 #card-container{
 
 width:80vw;
 max-width:320px;
+
 height:50vh;
 
 perspective:1000px;
@@ -74,9 +69,9 @@ transform:rotateY(180deg);
 
 button{
 
-margin-top:10px;
+margin-top:20px;
 
-padding:12px 25px;
+padding:12px 24px;
 
 font-size:18px;
 

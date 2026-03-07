@@ -1,34 +1,33 @@
-const CACHE="tarot-v1"
+const CACHE_NAME = "tarot-cache-v1";
 
-const urls=[
+const urlsToCache = [
 
 "/",
 "/index.html",
 "/style.css",
-"/script.js"
+"/script.js",
+"/manifest.json"
 
-]
+];
 
-self.addEventListener("install",e=>{
+self.addEventListener("install", event => {
 
-e.waitUntil(
+event.waitUntil(
 
-caches.open(CACHE).then(cache=>cache.addAll(urls))
+caches.open(CACHE_NAME)
+.then(cache => cache.addAll(urlsToCache))
 
-)
+);
 
-})
+});
 
-self.addEventListener("fetch",e=>{
+self.addEventListener("fetch", event => {
 
-e.respondWith(
+event.respondWith(
 
-caches.match(e.request).then(r=>{
+caches.match(event.request)
+.then(response => response || fetch(event.request))
 
-return r||fetch(e.request)
+);
 
-})
-
-)
-
-})
+});

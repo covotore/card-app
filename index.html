@@ -17,6 +17,20 @@
 <link rel="stylesheet" href="style.css">
 
 </head>
+  
+<script>
+
+if ("serviceWorker" in navigator) {
+
+window.addEventListener("load", () => {
+
+navigator.serviceWorker.register("/sw.js")
+
+});
+
+}
+
+</script>
 
 <body>
 
@@ -52,4 +66,5 @@ navigator.serviceWorker.register("sw.js");
 </body>
 
 </html>
+
 

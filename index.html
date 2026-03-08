@@ -8,13 +8,13 @@
 
 <title>タロット占い</title>
 
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="./manifest.json">
 
 <meta name="theme-color" content="#070a1f">
 
-<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
 
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="./style.css">
 
 </head>
 
@@ -26,7 +26,7 @@
 
 <div class="card" id="card">
 
-<img src="/images/back.png" id="cardBack">
+<img src="./images/back.png" id="cardBack">
 
 <img id="cardFront" class="card-back">
 
@@ -39,7 +39,7 @@
 
 <button onclick="drawCard()">カードを引く</button>
 
-<script src="/script.js"></script>
+<script src="./script.js"></script>
 
 <script>
 
@@ -47,6 +47,7 @@ if ("serviceWorker" in navigator) {
 
 window.addEventListener("load", () => {
 
+navigator.serviceWorker.register("./sw.js")
 .then(reg => console.log("Service Worker registered"))
 .catch(err => console.log(err))
 
